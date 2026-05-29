@@ -1,6 +1,10 @@
 *.log
 .DS_Store
+<<<<<<< HEAD
 # .env
+=======
+
+>>>>>>> a5de752 (yeta uta vako)
 .env.backup
 .env.production
 .phpactor.json
