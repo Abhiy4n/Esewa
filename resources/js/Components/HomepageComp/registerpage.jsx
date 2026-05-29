@@ -1,16 +1,27 @@
 import { useState } from "react";
+import { useForm } from "@inertiajs/react";
 
 export default function EsewaRegistration({ onClose }) {
-  const [gender, setGender] = useState("Male");
   const esewaLogo = "/assets/logo.png";
   const [showPromo, setShowPromo] = useState(false);
   const [promoCode, setPromoCode] = useState("");
-  const [agreed, setAgreed] = useState(false);
   const [captchaDone, setCaptchaDone] = useState(false);
-  const [form, setForm] = useState({ fullName: "", email: "", mobile: "" });
 
-  const handleChange = (e) =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const { data, setData, post, processing, errors } = useForm({
+    name: "",
+    email: "",
+    mobile_number: "",
+    gender: "Male",
+    password: "",
+    password_confirmation: "",
+  });
+
+  const handleChange = (e) => setData(e.target.name, e.target.value);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    post("/register");
+  };
 
   return (
     <>
@@ -169,6 +180,14 @@ export default function EsewaRegistration({ onClose }) {
         }
         .field-input:focus { border-color: #3cb648; background: white; }
         .field-input::placeholder { color: #bbb; }
+        .field-input.error { border-color: #e53e3e; }
+
+        .field-error {
+          font-size: 11px;
+          color: #e53e3e;
+          margin-top: 4px;
+          font-weight: 500;
+        }
 
         .gender-row {
           display: flex;
@@ -328,14 +347,15 @@ export default function EsewaRegistration({ onClose }) {
         }
         .create-btn:hover { background: #34a33f; }
         .create-btn:active { background: #2e8f38; transform: scale(0.99); }
+        .create-btn:disabled { background: #a5d6a7; cursor: not-allowed; transform: none; }
       `}</style>
 
       <div className="esewa-overlay">
-        <div className="esewa-modal">
+        <form className="esewa-modal" onSubmit={handleSubmit}>
 
           {/* ── LEFT PANEL ── */}
           <div className="left-panel">
-            <button className="close-btn" aria-label="Close" onClick={onClose}>✕</button>
+            <button className="close-btn" aria-label="Close" type="button" onClick={onClose}>✕</button>
 
             <img src={esewaLogo} alt="eSewa" className="logo-img" />
 
@@ -360,16 +380,17 @@ export default function EsewaRegistration({ onClose }) {
 
             {/* Full Name */}
             <div className="field-group">
-              <label className="field-label" htmlFor="fullName">Full Name</label>
+              <label className="field-label" htmlFor="name">Full Name</label>
               <input
-                id="fullName"
-                name="fullName"
-                className="field-input"
+                id="name"
+                name="name"
+                className={`field-input${errors.name ? " error" : ""}`}
                 type="text"
                 placeholder="Enter full name"
-                value={form.fullName}
+                value={data.name}
                 onChange={handleChange}
               />
+              {errors.name && <p className="field-error">{errors.name}</p>}
             </div>
 
             {/* Email */}
@@ -378,26 +399,28 @@ export default function EsewaRegistration({ onClose }) {
               <input
                 id="email"
                 name="email"
-                className="field-input"
+                className={`field-input${errors.email ? " error" : ""}`}
                 type="email"
                 placeholder="eg.youremail@example.com"
-                value={form.email}
+                value={data.email}
                 onChange={handleChange}
               />
+              {errors.email && <p className="field-error">{errors.email}</p>}
             </div>
 
             {/* Mobile */}
             <div className="field-group">
-              <label className="field-label" htmlFor="mobile">Mobile Number</label>
+              <label className="field-label" htmlFor="mobile_number">Mobile Number</label>
               <input
-                id="mobile"
-                name="mobile"
-                className="field-input"
+                id="mobile_number"
+                name="mobile_number"
+                className={`field-input${errors.mobile_number ? " error" : ""}`}
                 type="tel"
                 placeholder="98########"
-                value={form.mobile}
+                value={data.mobile_number}
                 onChange={handleChange}
               />
+              {errors.mobile_number && <p className="field-error">{errors.mobile_number}</p>}
             </div>
 
             {/* Gender */}
@@ -407,14 +430,44 @@ export default function EsewaRegistration({ onClose }) {
                 {["Male", "Female", "Other"].map((g) => (
                   <button
                     key={g}
-                    className={`gender-btn${gender === g ? " selected" : ""}`}
-                    onClick={() => setGender(g)}
+                    className={`gender-btn${data.gender === g ? " selected" : ""}`}
+                    onClick={() => setData("gender", g)}
                     type="button"
                   >
                     {g}
                   </button>
                 ))}
               </div>
+            </div>
+
+            {/* Password */}
+            <div className="field-group">
+              <label className="field-label" htmlFor="password">Password</label>
+              <input
+                id="password"
+                name="password"
+                className={`field-input${errors.password ? " error" : ""}`}
+                type="password"
+                placeholder="Create a password"
+                value={data.password}
+                onChange={handleChange}
+              />
+              {errors.password && <p className="field-error">{errors.password}</p>}
+            </div>
+
+            {/* Confirm Password */}
+            <div className="field-group">
+              <label className="field-label" htmlFor="password_confirmation">Confirm Password</label>
+              <input
+                id="password_confirmation"
+                name="password_confirmation"
+                className={`field-input${errors.password_confirmation ? " error" : ""}`}
+                type="password"
+                placeholder="Repeat your password"
+                value={data.password_confirmation}
+                onChange={handleChange}
+              />
+              {errors.password_confirmation && <p className="field-error">{errors.password_confirmation}</p>}
             </div>
 
             {/* Promo Code */}
@@ -443,8 +496,6 @@ export default function EsewaRegistration({ onClose }) {
                 type="checkbox"
                 className="tc-check"
                 id="tc"
-                checked={agreed}
-                onChange={(e) => setAgreed(e.target.checked)}
               />
               <label className="tc-text" htmlFor="tc">
                 I agree to the{" "}
@@ -488,12 +539,12 @@ export default function EsewaRegistration({ onClose }) {
             </div>
 
             {/* Submit */}
-            <button className="create-btn" type="button">
-              Create
+            <button className="create-btn" type="submit" disabled={processing}>
+              {processing ? "Creating..." : "Create"}
             </button>
           </div>
 
-        </div>
+        </form>
       </div>
     </>
   );
