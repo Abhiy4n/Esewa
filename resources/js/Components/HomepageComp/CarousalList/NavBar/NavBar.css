@@ -1,0 +1,26 @@
+nav{
+  background: #60bb46;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ul-item{
+  width: 1170px;
+  padding: 0 15px;
+  /* background: aqua; */
+}
+
+.nav-list{
+  display: flex;
+  gap: 30px;
+}
+
+.nav-list li{
+  font-size: .85rem;
+}
+
+.nav-list li a:hover{
+  color: #9bcf98;
+}

@@ -1,0 +1,155 @@
+@import "tailwindcss";
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Header */
+
+header {
+    background: #1c252e;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: sticky;
+    height: 70px;
+    top: 0;
+    z-index: 50;
+}
+
+.header-inner {
+  /* background: aqua; */
+  width: 1170px;
+  padding: 0 15px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.header-left{
+  /* background:red; */
+  display: flex;
+  gap: 58px;
+  flex:1;
+}
+
+.header-right{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15px;
+  gap: 1px;
+}
+
+.header-right > a{
+  font-size: 0.7rem;
+  color: rgb(204, 204, 204);
+}
+
+.header-right > a:hover{
+  color: #60bb46;
+}
+
+.header-right-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.search-wrap {
+  flex: 1;
+  max-width: 470px;
+  position: relative;
+  /* background: white; */
+}
+
+.user-id-container, .user-pass-container{
+  position: relative;
+}
+
+.search-wrap .search-icon{
+  background: red;
+}
+
+.search-wrap input {
+  width: 100%;
+  background: #28323c;
+  border: none;
+  color: white;
+  padding: 7px 14px 7px 36px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  border-radius: 6px;
+}
+
+.search-wrap input:focus, .user-auth input:focus{
+  background: white;
+  color: black;
+}
+
+.user-auth{
+  display: flex;
+  gap: 5px;
+  max-width: 370px;
+}
+
+.user-id-icon, .user-pass-icon{
+  position: absolute;
+  height: 15px;
+  width: 13px;
+  top: 8px;
+  left: 8px;
+}
+
+.sch-icon{
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 8px;
+  left: 8px;
+}
+
+.user-auth input{
+  width: 100%;
+  background: #28323c;
+  border: none;
+  color: white;
+  padding: 7px 14px 7px 36px;
+  font-size: 13px;
+  font-family: inherit;
+  outline: none;
+  border-radius: 2px;
+}
+
+.search-wrap input::placeholder { color: #888; }
+
+.buttons{
+  display: flex;
+  gap: 5px;
+  font-size: .8rem;
+}
+
+.btn-login, .btn-register{
+  padding: 3px 20px 3px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.btn-login{
+  background: #60bb46;
+}
+
+.btn-register{
+  border: 2px solid #60bb46;
+  color: #60bb46;
+}
+
+.btn-register:hover{
+  background: #60bb46;
+  color: white;
+}

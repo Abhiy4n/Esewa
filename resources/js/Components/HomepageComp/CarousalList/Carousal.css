@@ -1,0 +1,173 @@
+/* ── Section wrapper ── */
+.service-container {
+  width: 1150px;
+  margin: 20px auto;
+  padding: 10px;
+}
+
+/* ── Section header ── */
+.service-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.service-header .section-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: #1a1a1a;
+  margin: 0;
+}
+
+.service-header .view-more-btn {
+  font-size: 13px;
+  color: #4e9a39;
+  background: #dff1da;
+  border-radius: 6px;
+  padding: 5px 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  font-weight: 530;
+  white-space: nowrap;
+}
+
+.service-header .view-more-btn:hover {
+  background: #60bb46;
+  color: #fff;
+}
+
+/* ── Card row ── */
+.card-container {
+  background: #ffffff;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  gap: 14px;
+  position: relative;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.07);
+}
+
+/* ── Individual card ── */
+.card-container > .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  border-radius: 5px;
+  overflow: hidden;
+  border: 1px solid #ebebeb;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.card-container > .card:hover {
+  box-shadow: 0 4px 16px rgba(61, 187, 110, 0.13);
+  transform: translateY(-2px);
+}
+
+/* ── Top image section (colored bg) ── */
+.card .image {
+  background: #f5f7fd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px 20px;
+  margin: 17px auto 0 auto ;
+  width: 80px;
+  height: 67px;
+  border-radius: 63% 37% 30% 70% / 50% 45% 55% 50%;
+}
+
+.card .image img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  display: block;
+}
+
+/* ── Overlay badge (top-left label) ── */
+.card .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  border-radius: 5px;
+}
+
+.card .overlay p {
+  margin: 0;
+  font-size: 11px;
+  color: #4e9a39;
+  background: #dff1da;
+  border: 1px solid #b6e8ca;
+  padding: 2px 9px;
+  font-weight: 550;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+/* ── Bottom white panel (title + link) ── */
+.card .bottom-overlay {
+  background: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items:center;
+  height: 100px;
+  gap: 20px;
+  padding: 10px;
+  width: 100%;
+}
+
+.card .bottom-overlay .title p {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-align: center;
+  line-height: 1.35;
+}
+
+.card .bottom-overlay .bottom a {
+  font-size: 13px;
+  color: #60bb46;
+  font-weight: 550;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.card .bottom-overlay .bottom a:hover {
+  text-decoration: underline;
+}
+
+/* ── Carousel next arrow ── */
+.carousel-arrow {
+  position: absolute;
+  right: -18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  background: #ffffff;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  z-index: 10;
+  transition: background 0.18s;
+}
+
+.carousel-arrow:hover {
+  background: #f0faf4;
+}
+
+.carousel-arrow svg {
+  color: #555;
+  width: 16px;
+  height: 16px;
+}
