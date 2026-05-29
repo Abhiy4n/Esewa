@@ -1,31 +1,31 @@
 export default [
   {qr:{
     overlay: "Request QR",
-    image: "/assets/Business Qr Request.webp",
+    image: "public/assets/business-qr-request.webp",
     title: "Business QR Request",
   },
 
   espeaker:{
     overlay: "eSpeaker Request",
-    image: "/assets/eSpeaker Request.webp",
+    image: "public/assets/espeaker-request.webp",
     title: "eSpeaker Request",
   },
 
   ielts:{
     overlay: "IELTS",
-    image: "/assets/IELTS Registration.webp",
+    image: "public/assets/ielts-registration.webp",
     title: "IELTS Registration",
   },
 
   alfa:{
     overlay: "Up to 50% Cashback",
-    image: "/assets/NAME heath.webp",
+    image: "public/assets/name-heath.webp",
     title: "Alfa Health Care & Diagnostic Center",
   },
 
   meroshare:{
     overlay: "Meroshare",
-    image: "/assets/Alfa heath care & Diagnostic center.webp",
+    image: "public/assets/alfa-health-care-diagnostic-center.webp",
     title: "Naasa Securities Company Limited",
   }}
 ]

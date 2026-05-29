@@ -1,7 +1,11 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, usePage } from '@inertiajs/react';
+import Tutorial from '@/Components/Tutorial';
 
 export default function Dashboard() {
+    const { flash } = usePage().props;
+    const showTutorial = flash?.showTutorial === true || flash?.showTutorial === 'true';
+
     return (
         <AuthenticatedLayout
             header={
@@ -11,6 +15,8 @@ export default function Dashboard() {
             }
         >
             <Head title="Dashboard" />
+
+            {showTutorial && <Tutorial />}
 
             <div className="py-12">
                 <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">

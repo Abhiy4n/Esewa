@@ -1,7 +1,8 @@
 import "./Carousal.css"
 
 export default function CarousalList({ data, MainTitle }) {
-  const items = data?.[0] ?? {}
+  const items = Array.isArray(data) ? data[0] ?? {} : data ?? {}
+  const entries = Object.entries(items)
 
   return (
     <section>
@@ -16,14 +17,20 @@ export default function CarousalList({ data, MainTitle }) {
         {/* Cards */}
         <div className="card-container">
           {
-            Object.keys(items).map((key) => {
-              const { overlay, image, title } = items[key];
+            entries.map(([key, item]) => {
+              const { overlay, image, title } = item
               return (
                 <div className="card" key={key}>
                   {/* Image section — overlay badge sits inside here */}
                   <div className="image">
                     <div className="overlay"><p>{overlay}</p></div>
-                    <img src={image} alt={title} />
+                    <img
+                      src={image}
+                      alt={title}
+                      onError={(event) => {
+                        event.currentTarget.src = "/assets/logo.png"
+                      }}
+                    />
                   </div>
                   {/* White bottom panel */}
                   <div className="bottom-overlay">
