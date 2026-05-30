@@ -1,6 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, usePage } from '@inertiajs/react';
-import Tutorial from '@/Components/Tutorial';
+import Tutorial from '@/Pages/Tutorial';
 
 export default function Dashboard() {
     const { flash } = usePage().props;

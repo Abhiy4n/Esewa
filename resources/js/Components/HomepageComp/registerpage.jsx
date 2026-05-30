@@ -38,7 +38,7 @@ export default function EsewaRegistration({ onClose }) {
           align-items: center;
           justify-content: center;
           font-family: 'Inter', sans-serif;
-          padding: 20px;
+          padding: 16px;
           z-index: 1000;
           overflow-y: auto;
         }
@@ -46,37 +46,26 @@ export default function EsewaRegistration({ onClose }) {
         .esewa-modal {
           display: flex;
           width: 100%;
-          max-width: 860px;
-          min-height: 620px;
-          border-radius: 18px;
+          max-width: 780px;
+          min-height: 540px;
+          border-radius: 16px;
           overflow: hidden;
-          box-shadow: 0 24px 64px rgba(0,0,0,0.28);
-        }
-
-        /* ── LEFT PANEL ── */
-        .left-panel {
-          width: 46%;
-          background: #3cb648;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          padding: 44px 36px;
+          box-shadow: 0 20px 56px rgba(0,0,0,0.28);
           position: relative;
-          flex-shrink: 0;
         }
 
+        /* ── CLOSE BUTTON — top-right of white panel ── */
         .close-btn {
           position: absolute;
-          top: 14px;
-          right: 14px;
-          background: rgba(255,255,255,0.18);
+          top: 12px;
+          right: 12px;
+          background: rgba(0,0,0,0.07);
           border: none;
           border-radius: 50%;
-          width: 30px;
-          height: 30px;
-          color: white;
-          font-size: 15px;
+          width: 28px;
+          height: 28px;
+          color: #555;
+          font-size: 13px;
           font-weight: 700;
           cursor: pointer;
           display: flex;
@@ -84,32 +73,45 @@ export default function EsewaRegistration({ onClose }) {
           justify-content: center;
           transition: background 0.15s;
           font-family: 'Inter', sans-serif;
+          z-index: 10;
         }
-        .close-btn:hover { background: rgba(255,255,255,0.3); }
+        .close-btn:hover { background: rgba(0,0,0,0.14); }
+
+        /* ── LEFT PANEL ── */
+        .left-panel {
+          width: 44%;
+          background: #3cb648;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          padding: 36px 28px;
+          flex-shrink: 0;
+        }
 
         .logo-img {
-          width: 150px;
+          width: 130px;
           object-fit: contain;
-          margin-bottom: 30px;
+          margin-bottom: 24px;
           filter: brightness(0) invert(1);
         }
 
         .left-heading {
-          font-size: 28px;
+          font-size: 24px;
           font-weight: 800;
           color: white;
           line-height: 1.22;
-          letter-spacing: -0.5px;
+          letter-spacing: -0.4px;
           text-align: center;
-          margin-bottom: 14px;
+          margin-bottom: 12px;
         }
 
         .left-sub {
-          font-size: 13.5px;
+          font-size: 12.5px;
           color: rgba(255,255,255,0.82);
           line-height: 1.7;
           text-align: center;
-          margin-bottom: 36px;
+          margin-bottom: 30px;
         }
 
         .progress-bar {
@@ -129,9 +131,9 @@ export default function EsewaRegistration({ onClose }) {
 
         /* ── RIGHT PANEL ── */
         .right-panel {
-          width: 54%;
+          width: 56%;
           background: white;
-          padding: 36px 38px 32px;
+          padding: 28px 32px 24px;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -139,39 +141,39 @@ export default function EsewaRegistration({ onClose }) {
         }
 
         .form-title {
-          font-size: 24px;
+          font-size: 22px;
           font-weight: 800;
           color: #111;
           letter-spacing: -0.4px;
-          margin-bottom: 3px;
+          margin-bottom: 2px;
         }
 
         .form-sub {
-          font-size: 12.5px;
+          font-size: 11.5px;
           color: #aaa;
-          margin-bottom: 20px;
+          margin-bottom: 16px;
           font-weight: 400;
         }
 
         .field-group {
-          margin-bottom: 13px;
+          margin-bottom: 10px;
         }
 
         .field-label {
           display: block;
-          font-size: 12.5px;
+          font-size: 12px;
           font-weight: 600;
           color: #444;
-          margin-bottom: 5px;
+          margin-bottom: 4px;
           letter-spacing: 0.1px;
         }
 
         .field-input {
           width: 100%;
-          padding: 9px 12px;
+          padding: 8px 11px;
           border: 1.5px solid #e3e3e3;
           border-radius: 8px;
-          font-size: 13px;
+          font-size: 12.5px;
           color: #222;
           outline: none;
           background: #fafafa;
@@ -183,25 +185,25 @@ export default function EsewaRegistration({ onClose }) {
         .field-input.error { border-color: #e53e3e; }
 
         .field-error {
-          font-size: 11px;
+          font-size: 10.5px;
           color: #e53e3e;
-          margin-top: 4px;
+          margin-top: 3px;
           font-weight: 500;
         }
 
         .gender-row {
           display: flex;
-          gap: 8px;
+          gap: 7px;
         }
 
         .gender-btn {
           flex: 1;
-          padding: 8px 4px;
+          padding: 7px 4px;
           border: 1.5px solid #ddd;
           background: #f3f3f3;
           border-radius: 8px;
-          font-size: 12.5px;
-          font-weight: 700;
+          font-size: 12px;
+          font-weight: 600;
           color: #666;
           cursor: pointer;
           transition: all 0.15s;
@@ -220,17 +222,17 @@ export default function EsewaRegistration({ onClose }) {
 
         .promo-box {
           border: 1.5px solid #3cb648;
-          border-radius: 9px;
+          border-radius: 8px;
           background: #f4fcf4;
-          padding: 10px 14px;
+          padding: 9px 14px;
           text-align: center;
           cursor: pointer;
-          margin: 13px 0;
+          margin: 10px 0;
           transition: background 0.15s;
         }
         .promo-box:hover { background: #e8f8e9; }
         .promo-label {
-          font-size: 13px;
+          font-size: 12.5px;
           font-weight: 600;
           color: #3cb648;
         }
@@ -241,7 +243,7 @@ export default function EsewaRegistration({ onClose }) {
           background: transparent;
           outline: none;
           text-align: center;
-          font-size: 13px;
+          font-size: 12.5px;
           color: #3cb648;
           font-family: 'Inter', sans-serif;
           font-weight: 500;
@@ -252,7 +254,7 @@ export default function EsewaRegistration({ onClose }) {
           display: flex;
           align-items: flex-start;
           gap: 8px;
-          margin-bottom: 12px;
+          margin-bottom: 10px;
         }
         .tc-check {
           width: 14px;
@@ -263,7 +265,7 @@ export default function EsewaRegistration({ onClose }) {
           cursor: pointer;
         }
         .tc-text {
-          font-size: 11.5px;
+          font-size: 11px;
           color: #666;
           line-height: 1.55;
         }
@@ -278,11 +280,11 @@ export default function EsewaRegistration({ onClose }) {
           border: 1.5px solid #e0e0e0;
           border-radius: 8px;
           background: #fafafa;
-          padding: 11px 14px;
+          padding: 10px 12px;
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-bottom: 15px;
+          margin-bottom: 12px;
         }
 
         .captcha-left {
@@ -307,7 +309,7 @@ export default function EsewaRegistration({ onClose }) {
         .captcha-checkbox.checked { border-color: #3cb648; }
 
         .captcha-text {
-          font-size: 13px;
+          font-size: 12.5px;
           color: #444;
           font-weight: 500;
         }
@@ -319,8 +321,8 @@ export default function EsewaRegistration({ onClose }) {
           gap: 2px;
         }
         .captcha-logo-icon {
-          width: 28px;
-          height: 28px;
+          width: 26px;
+          height: 26px;
           border-radius: 50%;
           background: conic-gradient(#4285f4 0deg 120deg, #34a853 120deg 240deg, #ea4335 240deg 360deg);
         }
@@ -333,12 +335,12 @@ export default function EsewaRegistration({ onClose }) {
 
         .create-btn {
           width: 100%;
-          padding: 13px;
+          padding: 11px;
           background: #3cb648;
           border: none;
-          border-radius: 9px;
+          border-radius: 8px;
           color: white;
-          font-size: 14.5px;
+          font-size: 14px;
           font-weight: 700;
           cursor: pointer;
           font-family: 'Inter', sans-serif;
@@ -353,10 +355,11 @@ export default function EsewaRegistration({ onClose }) {
       <div className="esewa-overlay">
         <form className="esewa-modal" onSubmit={handleSubmit}>
 
+          {/* ── CLOSE BUTTON — anchored to top-right of modal ── */}
+          <button className="close-btn" aria-label="Close" type="button" onClick={onClose}>✕</button>
+
           {/* ── LEFT PANEL ── */}
           <div className="left-panel">
-            <button className="close-btn" aria-label="Close" type="button" onClick={onClose}>✕</button>
-
             <img src={esewaLogo} alt="eSewa" className="logo-img" />
 
             <h1 className="left-heading">Simple &amp; Fast<br />Payment</h1>
@@ -471,10 +474,7 @@ export default function EsewaRegistration({ onClose }) {
             </div>
 
             {/* Promo Code */}
-            <div
-              className="promo-box"
-              onClick={() => setShowPromo(true)}
-            >
+            <div className="promo-box" onClick={() => setShowPromo(true)}>
               {showPromo ? (
                 <input
                   className="promo-input"
@@ -492,11 +492,7 @@ export default function EsewaRegistration({ onClose }) {
 
             {/* Terms */}
             <div className="tc-row">
-              <input
-                type="checkbox"
-                className="tc-check"
-                id="tc"
-              />
+              <input type="checkbox" className="tc-check" id="tc" />
               <label className="tc-text" htmlFor="tc">
                 I agree to the{" "}
                 <a href="#" className="tc-link">Terms &amp; Conditions</a>
